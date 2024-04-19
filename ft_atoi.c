@@ -6,31 +6,30 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:39:19 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/19 10:39:22 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/19 15:09:45 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static	unsigned long	longgg(unsigned long re, int sin, const char *str, int x)
+static	int	longgg(unsigned long long int re, int sin, const char *str, int x)
 {
 	while (str[x] >= 48 && str[x] <= 57)
 	{
 		re *= 10;
 		re += str[x] - 48;
-		if (re > 9223372036854775807 && sin == -1)
-			return (0);
-		if (re > 9223372036854775807 && sin == 1)
-			return (-1);
 		x++;
 	}
-	return (re * sin);
+	re *= sin;
+	if (re > 2147483647 && re < -2147483648)
+		return (0);
+	return (re);
 }
 
-unsigned long	ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int						x;
-	unsigned long	re;
+	unsigned long long int	re;
 	int						sin;
 
 	x = 0;

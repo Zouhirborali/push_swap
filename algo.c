@@ -6,7 +6,7 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:38:58 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/19 10:39:01 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/19 10:49:22 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,19 @@ void	part_one(t_list **stack_a, t_list **stack_b, int x, int ii)
 {
 	while (git_count(*stack_a))
 	{
-		if((*stack_a)->index>=x && (*stack_a)->index<=x+ii)
-		{
-			push_to_b(stack_a,stack_b);
-			x++;	
-		}
-		else if((*stack_a)->index < x)
+		if ((*stack_a)->index >= x && (*stack_a)->index <= x + ii)
 		{
 			push_to_b(stack_a, stack_b);
-			if(git_count(*stack_a) && (*stack_a)->index > x)
+			x++;
+		}
+		else if ((*stack_a)->index < x)
+		{
+			push_to_b(stack_a, stack_b);
+			if (git_count(*stack_a) && (*stack_a)->index > x)
 				rotate_up_tow(stack_a, stack_b);
 			else
 				rotate_up(stack_b, 'b');
-			x++;	
+			x++;
 		}
 		else
 		{

@@ -6,14 +6,13 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:40:12 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/19 10:40:13 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/19 15:46:33 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-void	swap_node(t_list **list, char c)	
+void	swap_node(t_list **list, char c)
 {
 	t_list	tt1;
 	t_list	tt2;
@@ -33,12 +32,10 @@ void	swap_node(t_list **list, char c)
 	else if (c == 'b')
 		printf("sb\n");
 }
-
 /*
 void swap_tow(t_list **list_a,t_list **list_b)
 {
 	// swap_node(list_a,' ');
 	// swap_node(list_b,' ');
 	printf("ss\n");
-}
-*/
+}*/

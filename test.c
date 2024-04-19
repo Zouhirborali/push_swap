@@ -6,10 +6,9 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:40:09 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/19 10:40:10 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/19 16:09:25 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -45,7 +44,7 @@ void	sort_treu_el(t_list **stack_a)
 		rotate_up(stack_a, 'a');
 }
 
-void	sort_five_el(t_list **stack_a, t_list **stack_b)
+void	sort_five_el(t_list **stack_a, t_list **stack_b, int coun)
 {
 	while (git_count(*stack_a) > 3)
 	{
@@ -56,10 +55,24 @@ void	sort_five_el(t_list **stack_a, t_list **stack_b)
 	}
 	sort_treu_el(stack_a);
 	push_to_a(stack_b, stack_a);
-	push_to_a(stack_b, stack_a);
+	if (coun == 5)
+		push_to_a(stack_b, stack_a);
 	if ((*stack_a)->index > (*stack_a)->next->index)
 		swap_node(stack_a, 'a');
+}
 
+void	mm(t_list **stack_a, t_list **stack_b, int coun)
+{
+	int	ii;
+	int	x;
+
+	x = 1;
+	if (coun <= 200)
+		ii = 15;
+	else
+		ii = 32;
+	part_one(stack_a, stack_b, x, ii);
+	part_tow(stack_a, stack_b);
 }
 
 int main(int arv, char **arc)
@@ -67,42 +80,30 @@ int main(int arv, char **arc)
 	t_list	*stack_a;
 	t_list	*stack_b;
 	int		whitd;
-	int		x;
-	int		ii;
-	
+
 	stack_a = NULL;
 	stack_b = NULL;
-	x = 1;
-	if(cou_args(arc,arv-1) == 0||cou_args(arc,arv-1) == 1)
-		return 0;
-	if (check_errore(arc, arv - 1))
-		return (write(2,"Error\n",6), 0);
+	if (cou_args(arc, arv - 1) == 1 && !check_errore(arc, arv - 1))
+		return (0);
+	if (cou_args(arc, arv - 1) == 0 || check_errore(arc, arv - 1))
+		return (write(2, "Error\n", 6), 0);
 	if (check_sort(arc, arv - 1))
 		return (0);
-	if(cou_args(arc,arv-1) == 2)
-		return(printf("sa\n"),0);
+	if (cou_args(arc, arv - 1) == 2)
+		return (printf("sa\n"), 0);
 	stack_a = get_arg(arc, arv - 1);
 	add_index(&stack_a);
-	if (cou_args(arc,arv-1) == 3)
+	if (cou_args(arc, arv - 1) == 3)
 		return (sort_treu_el(&stack_a), 0);
-	if (cou_args(arc,arv-1) == 5)
-		return (sort_five_el(&stack_a, &stack_b), 0);
+	if (cou_args(arc, arv - 1) == 5 || cou_args(arc, arv - 1) == 4)
+		return (sort_five_el(&stack_a, &stack_b, cou_args(arc, arv - 1)), 0);
 	whitd = git_count(stack_a);
-	//ii = get_i(whitd, arc, arv);
-	if(cou_args(arc,arv-1)<=200)
-		ii = 15;
-	else	
-		ii = 32;
-	part_one(&stack_a,&stack_b, x, ii);
-	part_tow(&stack_a,&stack_b);
-
-// ////////////////////////////////////////////////////
-// printf("=========a==========\n");
-// ft_lstiter(stack_a,printt);
-//    printf("=========b==========\n");
-//    ft_lstiter(stack_b,printt);
-//printf("---%d\n",ii);
-ft_lstclear(&stack_a);
-// if(stack_a==NULL)
-//     printf("null\n");
+	mm(&stack_a, &stack_b, cou_args(arc, arv - 1));
+	ft_lstclear(&stack_a);
 }
+/*
+/////////////////////////////////////////////////////
+ printf("=========a==========\n");
+ft_lstiter(stack_a,printt);
+printf("=========b==========\n");
+ft_lstiter(stack_b,printt);*/

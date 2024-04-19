@@ -6,7 +6,7 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:59:54 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/19 15:46:18 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/19 19:36:55 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,6 @@ char	**ft_split(char const *s, char c);
 //
 char	*args(char **str, int l);
 int		cou_args(char **str, int x);
-
+//
 size_t	ft_strlen(const char *s);
 #endif

@@ -6,7 +6,7 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:37:09 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/19 15:45:39 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/19 18:12:25 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	check_dople(char **str, int x)
 	return (free(ss), free(s), 0);
 }
 
-int	check_empte(char **str, int x)
+int	check_empte(char **str)
 {
 	int	i;
 	int	j;
@@ -87,7 +87,7 @@ int	check_errore(char **str, int x)
 		}
 		j++;
 	}
-	if (check_empte(str, x))
+	if (check_empte(str))
 		return (free(ss), free(s), 1);
 	return (free(ss), free(s), check_dople(str, x));
 }

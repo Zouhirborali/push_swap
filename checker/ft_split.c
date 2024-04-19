@@ -6,13 +6,13 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:07:07 by zbakkas           #+#    #+#             */
-/*   Updated: 2023/12/23 16:39:11 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/19 16:41:45 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static size_t	ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	int	x;
 

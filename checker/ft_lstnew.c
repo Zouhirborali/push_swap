@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/19 16:55:16 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/19 16:55:35 by zbakkas          ###   ########.fr       */
+/*   Created: 2024/04/19 10:40:31 by zbakkas           #+#    #+#             */
+/*   Updated: 2024/04/19 16:47:00 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	swap_node(t_list **list)
+t_list	*ft_lstnew(int content)
 {
-	t_list	tt1;
-	t_list	tt2;
-	t_list	*tt;
-	t_list	*re;
+	t_list	*new_node;
 
-	tt = *list;
-	tt1.next = tt;
-	tt2.next = tt->next;
-	tt = tt->next->next;
-	re = tt2.next;
-	re->next = tt1.next;
-	re->next->next = tt;
-	*list = re;
-}
-
-void	swap_tow(t_list **list_a, t_list **list_b)
-{
-	swap_node(list_a);
-	swap_node(list_b);
+	new_node = malloc(sizeof(t_list));
+	if (!new_node)
+		return (NULL);
+	new_node->value = content;
+	new_node->next = NULL;
+	return (new_node);
 }

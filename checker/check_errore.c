@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   check_errore.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 18:44:15 by zbakkas           #+#    #+#             */
-/*   Updated: 2023/12/23 20:03:06 by zbakkas          ###   ########.fr       */
+/*   Created: 2024/04/19 10:37:09 by zbakkas           #+#    #+#             */
+/*   Updated: 2024/04/19 18:13:02 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,57 +14,98 @@
 
 static int	check_dople(char **str, int x)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	*ss;
+	char	**s;
 
-	i = 1;
-	j = 1;
-	while (x >= j)
+	i = 0;
+	j = 0;
+	ss = args(str, x);
+	s = ft_split(ss, ' ');
+	while (s[j])
 	{
 		i = 1;
-
-		while (str[i])
+		if (ft_atoi(s[j]) == 0 && ft_strlen(s[j]) >= 10)
+			return (free(ss), free(s), 1);
+		while (s[i])
 		{
-			if (ft_atoi(str[i]) == ft_atoi(str[j]) && i != j)
-				return (1);
+			if (ft_atoi(s[i]) == ft_atoi(s[j]) && i != j)
+				return (free(ss), free(s), 1);
 			i++;
 		}
 		j++;
+	}
+	return (free(ss), free(s), 0);
+}
+
+int	check_empte(char **str)
+{
+	int	i;
+	int	j;
+	int	l;
+
+	i = 1;
+	while (str[i])
+	{
+		j = 0;
+		l = 0;
+		while (str[i][j])
+		{
+			if (str[i][j] != ' ')
+				l++;
+			j++;
+		}
+		if (!l)
+			return (1);
+		i++;
 	}
 	return (0);
 }
 
 int	check_errore(char **str, int x)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	*ss;
+	char	**s;
 
 	i = 0;
-	j = 1;
-	while (x >= j)
+	j = 0;
+	ss = args(str, x);
+	s = ft_split(ss, ' ');
+	while (s[j])
 	{
 		i = 0;
-		while (str[j][i])
+		while (s[j][i])
 		{
-			if (!(str[j][i] >= '0' && str[j][i] <= '9'))
-				return (1);
+			if (i == 0 && (s[j][i] == '-' || s[j][i] == '+')) 
+				i++;
+			if (!(s[j][i] >= '0' && s[j][i] <= '9'))
+				return (free(ss), free(s), 1);
 			i++;
 		}
 		j++;
 	}
-	return (check_dople(str, x));
+	if (check_empte(str))
+		return (free(ss), free(s), 1);
+	return (free(ss), free(s), check_dople(str, x));
 }
 
 int	check_sort(char **str, int x)
 {
-	int	i;
+	int		i;
+	char	*ss;
+	char	**s;
 
-	i =1;
-	while (x >= i)
+	i = 0;
+	ss = args(str, x);
+	s = ft_split(ss, ' ');
+	while (s[i])
 	{
-		if (str[i + 1] && ft_atoi(str[i]) > ft_atoi(str[i + 1]))
-			return (0);
+		if (s[i + 1] && ft_atoi(s[i]) > ft_atoi(s[i + 1]))
+			return (free(ss), free(s), 0);
 		i++;
 	}
-	return (1);
+	return (free(ss), free(s), 1);
 }

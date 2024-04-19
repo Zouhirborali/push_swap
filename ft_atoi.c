@@ -6,7 +6,7 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:39:19 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/19 15:09:45 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/19 18:37:28 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static	int	longgg(unsigned long long int re, int sin, const char *str, int x)
 		x++;
 	}
 	re *= sin;
-	if (re > 2147483647 && re < -2147483648)
+	if (re > 2147483647 && re < -2147483648ULL)
 		return (0);
 	return (re);
 }

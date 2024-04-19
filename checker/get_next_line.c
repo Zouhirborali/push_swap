@@ -6,23 +6,11 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:34:55 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/01/22 15:24:16 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/19 16:44:29 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-
-static size_t	ft_strlen(char	*str)
-{
-	size_t	i;
-
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
-		i++;
-	return (i);
-}
 
 char	*read_line(char *str)
 {

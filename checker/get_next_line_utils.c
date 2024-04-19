@@ -6,23 +6,11 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:35:00 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/01/22 15:17:51 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/19 16:44:47 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-
-static size_t	ft_strlen(char	*str)
-{
-	size_t	i;
-
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
-		i++;
-	return (i);
-}
 
 char	*ft_strjoin(char *start, char *buff)
 {

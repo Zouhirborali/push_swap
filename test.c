@@ -6,16 +6,11 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:40:09 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/19 16:09:25 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/19 16:56:19 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	printt(int p, int pp)
-{
-	printf("%d %d\n", p, pp);
-}
 
 void	sort_treu_el(t_list **stack_a)
 {
@@ -75,7 +70,7 @@ void	mm(t_list **stack_a, t_list **stack_b, int coun)
 	part_tow(stack_a, stack_b);
 }
 
-int main(int arv, char **arc)
+int	main(int arv, char **arc)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
@@ -101,6 +96,7 @@ int main(int arv, char **arc)
 	mm(&stack_a, &stack_b, cou_args(arc, arv - 1));
 	ft_lstclear(&stack_a);
 }
+
 /*
 /////////////////////////////////////////////////////
  printf("=========a==========\n");

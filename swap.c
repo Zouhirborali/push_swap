@@ -6,27 +6,24 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:40:12 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/19 15:46:33 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/20 16:35:45 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_node(t_list **list, char c)
+void	swap_node(t_list **stack, char c)
 {
-	t_list	tt1;
-	t_list	tt2;
-	t_list	*tt;
-	t_list	*re;
+	t_list	*elm1;
+	t_list	*elm2;
 
-	tt = *list;
-	tt1.next = tt;
-	tt2.next = tt->next;
-	tt = tt->next->next;
-	re = tt2.next;
-	re->next = tt1.next;
-	re->next->next = tt;
-	*list = re;
+	elm1 = *stack;
+	*stack = (*stack)->next;
+	elm2 = *stack;
+	*stack = (*stack)->next;
+	elm1->next = *stack;
+	elm2->next = elm1;
+	*stack = elm2;
 	if (c == 'a')
 		printf("sa\n");
 	else if (c == 'b')

@@ -6,7 +6,7 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:40:09 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/19 16:56:19 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/20 17:44:35 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ int	main(int arv, char **arc)
 
 	stack_a = NULL;
 	stack_b = NULL;
+	if (arv - 1 == 0)
+		return (0);
 	if (cou_args(arc, arv - 1) == 1 && !check_errore(arc, arv - 1))
 		return (0);
 	if (cou_args(arc, arv - 1) == 0 || check_errore(arc, arv - 1))

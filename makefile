@@ -9,25 +9,25 @@ SRC = test.c ft_lstiter.c get_arg.c  ft_lstnew.c ft_atoi.c \
 	check_errore.c  ft_split.c\
 
 
-SRC_B = ./bonus/checkear.c ./bonus/get_next_line.c ./bonus/ft_split.c ./bonus/ft_strncmp.c \
-	./bonus/push.c ./bonus/rotate.c  ./bonus/swap.c  ./bonus/ft_atoi.c  ./bonus/get_arg.c ./bonus/check_errore.c \
-	./bonus/get_next_line_utils.c ./bonus/ft_lstnew.c\
+SRC_B = ./bonus/checkear_bonus.c ./bonus/get_next_line_bonus.c ./bonus/ft_split_bonus.c ./bonus/ft_strncmp_bonus.c \
+	./bonus/push_bonus.c ./bonus/rotate_bonus.c  ./bonus/swap_bonus.c  ./bonus/ft_atoi_bonus.c  ./bonus/get_arg_bonus.c \
+	./bonus/check_errore_bonus.c ./bonus/get_next_line_utils_bonus.c ./bonus/ft_lstnew_bonus.c\
 
 OBJ = $(SRC:.c=.o)
 OBJ_B =$(SRC_B:.c=.o)
 
 all:$(NAME)
 
-$(NAME):$(OBJ) push_swap.h
+$(NAME):$(OBJ) 
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 bonus:$(NAME_B)
 
-$(NAME_B):$(OBJ_B) ./bonus/checker.h
+$(NAME_B):$(OBJ_B) 
 	$(CC) $(CFLAGS) -o $(NAME_B) $(OBJ_B)
 
-# OBJ:SRC push_swap.h
-# 	$(CC) $(CFLAGS) -c $< -o $@ 
+%.o:%.c push_swap.h ./bonus/checker.h
+	$(CC) $(CFLAGS) -c $< -o $@ 
 # OBJ_B:SRC_B ./bonus/checker.h
 # 	$(CC) $(CFLAGS) -c $< -o $@ 
 
@@ -35,7 +35,7 @@ clean:
 	$(RM) *.o 
 	$(RM) ./bonus/*.o 
 fclean:clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(NAME_B)
 	
 re:fclean all
 

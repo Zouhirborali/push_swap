@@ -6,7 +6,7 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:55:11 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/19 16:59:56 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/20 17:15:55 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,9 @@ void	rotate_up(t_list **list)
 	t_list	*last;
 
 	last = *list;
-	while (last->next != NULL)
-		last = last->next;
-	last->next = *list;
 	*list = (*list)->next;
-	last->next->next = NULL;
+	last->next = NULL;
+	ft_lstadd_back(list, last);
 }
 
 void	rotate_up_tow(t_list **list_a, t_list **list_b)

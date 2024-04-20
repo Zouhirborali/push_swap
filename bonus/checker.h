@@ -6,7 +6,7 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:54:32 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/19 19:34:48 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/20 21:35:32 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		check_errore(char **str, int x);
 int		ft_atoi(const char *str);
 int		check_sort(char **str, int x);
 //
-void	swap_node(t_list **list);
+void	swap_node(t_list **stack);
 void	swap_tow(t_list **list_a, t_list **list_b);
 void	push_to_a(t_list **list1, t_list **list2);
 void	push_to_b(t_list **list1, t_list **list2);
@@ -57,8 +57,5 @@ char	*args(char **str, int l);
 t_list	*ft_lstnew(int content);
 size_t	ft_strlen(const char *s);
 char	**ft_split(char const *s, char c);
-//
-
-
-
+void	ft_lstadd_back(t_list **lst, t_list *new);
 #endif

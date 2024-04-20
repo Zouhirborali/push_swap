@@ -6,13 +6,13 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:40:25 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/19 15:46:02 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/20 17:16:39 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*re;
 

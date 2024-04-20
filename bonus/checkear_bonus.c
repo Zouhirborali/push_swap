@@ -6,7 +6,7 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:54:22 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/19 17:35:39 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/20 18:06:14 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,15 @@ int	main(int arv, char **arc)
 
 	stack_a = NULL;
 	stack_b = NULL;
+	if (arv - 1 == 0)
+		return (0);
 	if (cou_args(arc, arv - 1) == 0 || check_errore(arc, arv - 1))
 		return (write(2, "Error\n", 6), 0);
 	stack_a = get_arg(arc, arv - 1);
 	if (sorrrt(&stack_a, &stack_b))
 		return (write(2, "Error\n", 6), 0);
 	if (check_sort_node(stack_a) && stack_b == NULL)
-		printf("ko\n");
+		write(2, "ko\n", 3);
 	else
-		printf("ok\n");
+		write(2, "ok\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:59:54 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/19 19:36:55 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/20 21:34:42 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_list
 void	ft_lstiter(t_list *lst, void (*f)(int, int));
 t_list	*ft_lstnew(int content);
 //
-void	swap_node(t_list **list, char c);
+void	swap_node(t_list **stack, char c);
 //void swap_tow(t_list **list_a,t_list **list_b);
 //
 void	rotate_up(t_list **list, char c);
@@ -62,4 +62,5 @@ char	*args(char **str, int l);
 int		cou_args(char **str, int x);
 //
 size_t	ft_strlen(const char *s);
+void	ft_lstadd_back(t_list **lst, t_list *new);
 #endif

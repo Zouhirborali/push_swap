@@ -6,7 +6,7 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:40:15 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/19 10:56:26 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/20 19:52:43 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,9 @@ void	rotate_up(t_list **list, char c)
 	t_list	*last;
 
 	last = *list;
-	while (last->next != NULL)
-		last = last->next;
-	last->next = *list;
 	*list = (*list)->next;
-	last->next->next = NULL;
+	last->next = NULL;
+	ft_lstadd_back(list, last);
 	if (c == 'a')
 		printf("ra\n");
 	else if (c == 'b')

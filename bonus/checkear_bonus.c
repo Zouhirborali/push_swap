@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checkear.c                                         :+:      :+:    :+:   */
+/*   checkear_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:54:22 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/20 18:06:14 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/21 15:59:50 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(int, int))
+int	git_count(t_list *ll)
 {
-	if (!lst || !f)
-		return ;
-	while (lst)
+	int		x;
+	t_list	*list;
+
+	x = 0;
+	list = ll;
+	while (list)
 	{
-		f(lst->value, lst->index);
-		lst = lst->next;
+		x++;
+		list = list->next;
 	}
+	return (x);
 }
 
 static int	sorrrt_o(t_list **stack_a, t_list **stack_b, char *str)
@@ -64,8 +68,9 @@ int	sorrrt(t_list **stack_a, t_list **stack_b)
 		if (!str || str[0] == '\0')
 			break ;
 		if (sorrrt_o(stack_a, stack_b, str))
-			return (1);
+			return (free(str), 1);
 		x++;
+		free(str);
 	}
 	return (0);
 }
@@ -96,7 +101,8 @@ int	main(int arv, char **arc)
 	if (sorrrt(&stack_a, &stack_b))
 		return (write(2, "Error\n", 6), 0);
 	if (check_sort_node(stack_a) && stack_b == NULL)
-		write(2, "ko\n", 3);
+		write(1, "KO\n", 3);
 	else
-		write(2, "ok\n", 3);
+		write(1, "OK\n", 3);
+	ft_lstclear(&stack_a);
 }

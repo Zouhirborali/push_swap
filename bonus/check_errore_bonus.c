@@ -1,16 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_errore.c                                     :+:      :+:    :+:   */
+/*   check_errore_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:37:09 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/19 19:34:40 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/21 14:09:52 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
+
+void	free_s(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
+}
 
 static int	check_dople(char **str, int x)
 {
@@ -27,16 +40,16 @@ static int	check_dople(char **str, int x)
 	{
 		i = 1;
 		if (ft_atoi(s[j]) == 0 && ft_strlen(s[j]) >= 10)
-			return (free(ss), free(s), 1);
+			return (free(ss), free_s(s), 1);
 		while (s[i])
 		{
 			if (ft_atoi(s[i]) == ft_atoi(s[j]) && i != j)
-				return (free(ss), free(s), 1);
+				return (free(ss), free_s(s), 1);
 			i++;
 		}
 		j++;
 	}
-	return (free(ss), free(s), 0);
+	return (free(ss), free_s(s), 0);
 }
 
 int	check_empte(char **str)
@@ -82,14 +95,14 @@ int	check_errore(char **str, int x)
 			if (i == 0 && (s[j][i] == '-' || s[j][i] == '+')) 
 				i++;
 			if (!(s[j][i] >= '0' && s[j][i] <= '9'))
-				return (free(ss), free(s), 1);
+				return (free(ss), free_s(s), 1);
 			i++;
 		}
 		j++;
 	}
 	if (check_empte(str))
-		return (free(ss), free(s), 1);
-	return (free(ss), free(s), check_dople(str, x));
+		return (free(ss), free_s(s), 1);
+	return (free(ss), free_s(s), check_dople(str, x));
 }
 
 int	check_sort(char **str, int x)
@@ -104,8 +117,8 @@ int	check_sort(char **str, int x)
 	while (s[i])
 	{
 		if (s[i + 1] && ft_atoi(s[i]) > ft_atoi(s[i + 1]))
-			return (free(ss), free(s), 0);
+			return (free(ss), free_s(s), 0);
 		i++;
 	}
-	return (free(ss), free(s), 1);
+	return (free(ss), free_s(s), 1);
 }

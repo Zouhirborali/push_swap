@@ -11,7 +11,7 @@ SRC = test.c ft_lstiter.c get_arg.c  ft_lstnew.c ft_atoi.c \
 
 SRC_B = ./bonus/checkear_bonus.c ./bonus/get_next_line_bonus.c ./bonus/ft_split_bonus.c ./bonus/ft_strncmp_bonus.c \
 	./bonus/push_bonus.c ./bonus/rotate_bonus.c  ./bonus/swap_bonus.c  ./bonus/ft_atoi_bonus.c  ./bonus/get_arg_bonus.c \
-	./bonus/check_errore_bonus.c ./bonus/get_next_line_utils_bonus.c ./bonus/ft_lstnew_bonus.c\
+	./bonus/check_errore_bonus.c ./bonus/get_next_line_utils_bonus.c ./bonus/ft_lstnew_bonus.c  ./bonus/free_list_bonus.c\
 
 OBJ = $(SRC:.c=.o)
 OBJ_B =$(SRC_B:.c=.o)

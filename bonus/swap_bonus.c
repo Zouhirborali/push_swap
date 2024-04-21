@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   swap_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:55:16 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/20 16:36:09 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/21 15:16:24 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 void	swap_node(t_list **stack)
 {
 	t_list	*elm1;
 	t_list	*elm2;
 
+	if (git_count(*stack) <= 1)
+		return ;
 	elm1 = *stack;
 	*stack = (*stack)->next;
 	elm2 = *stack;
@@ -28,6 +30,8 @@ void	swap_node(t_list **stack)
 
 void	swap_tow(t_list **list_a, t_list **list_b)
 {
+	if (git_count(*list_a) <= 1 || git_count(*list_b) <= 1)
+		return ;
 	swap_node(list_a);
 	swap_node(list_b);
 }

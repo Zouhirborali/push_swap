@@ -6,7 +6,7 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:59:54 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/20 21:34:42 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/21 12:36:37 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,5 @@ int		cou_args(char **str, int x);
 //
 size_t	ft_strlen(const char *s);
 void	ft_lstadd_back(t_list **lst, t_list *new);
+void	free_s(char **s);
 #endif

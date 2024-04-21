@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:54:32 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/20 21:35:32 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/21 15:22:28 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 # include <unistd.h>
 # include <stdio.h>
 # include <fcntl.h>
@@ -58,4 +58,9 @@ t_list	*ft_lstnew(int content);
 size_t	ft_strlen(const char *s);
 char	**ft_split(char const *s, char c);
 void	ft_lstadd_back(t_list **lst, t_list *new);
+void	free_s(char **s);
+int		git_count(t_list *ll);
+//
+void	ft_lstclear(t_list **lst);
+
 #endif

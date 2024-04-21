@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_arg.c                                          :+:      :+:    :+:   */
+/*   get_arg_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:40:25 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/20 17:17:28 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/21 13:23:40 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
@@ -36,7 +36,7 @@ t_list	*get_arg(char **str, int count)
 {
 	t_list	*re;
 	int		i;
-	char	**ss;
+	char	**s;
 	int		x;
 
 	re = NULL;
@@ -44,9 +44,10 @@ t_list	*get_arg(char **str, int count)
 	while (count >= i)
 	{
 		x = 0;
-		ss = ft_split(str[i], ' ');
-		while (ss[x])
-			ft_lstadd_back(&re, ft_lstnew(ft_atoi(ss[x++])));
+		s = ft_split(str[i], ' ');
+		while (s[x])
+			ft_lstadd_back(&re, ft_lstnew(ft_atoi(s[x++])));
+		free_s(s);
 		i++;
 	}
 	return (re);
@@ -66,7 +67,7 @@ int	cou_args(char **str, int x)
 		i++;
 	}
 	free(ss);
-	free(s);
+	free_s(s);
 	return (i);
 }
 

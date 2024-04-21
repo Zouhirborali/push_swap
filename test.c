@@ -6,7 +6,7 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:40:09 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/20 17:44:35 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/21 14:09:22 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	sort_five_el(t_list **stack_a, t_list **stack_b, int coun)
 		swap_node(stack_a, 'a');
 }
 
-void	mm(t_list **stack_a, t_list **stack_b, int coun)
+static void	mm(t_list **stack_a, t_list **stack_b, int coun)
 {
 	int	ii;
 	int	x;
@@ -74,7 +74,6 @@ int	main(int arv, char **arc)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	int		whitd;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -94,7 +93,6 @@ int	main(int arv, char **arc)
 		return (sort_treu_el(&stack_a), 0);
 	if (cou_args(arc, arv - 1) == 5 || cou_args(arc, arv - 1) == 4)
 		return (sort_five_el(&stack_a, &stack_b, cou_args(arc, arv - 1)), 0);
-	whitd = git_count(stack_a);
 	mm(&stack_a, &stack_b, cou_args(arc, arv - 1));
 	ft_lstclear(&stack_a);
 }

@@ -6,7 +6,7 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:40:09 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/23 16:02:29 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/24 13:12:07 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,10 @@ int	main(int arv, char **arc)
 	stack_a = get_arg(arc, arv - 1);
 	add_index(&stack_a);
 	if (cou_args(arc, arv - 1) == 3)
-		return (sort_treu_el(&stack_a), 0);
+		return (sort_treu_el(&stack_a), ft_lstclear(&stack_a), 0);
 	if (cou_args(arc, arv - 1) == 5 || cou_args(arc, arv - 1) == 4)
-		return (sort_five_el(&stack_a, &stack_b, cou_args(arc, arv - 1)), 0);
+		return (sort_five_el(&stack_a, &stack_b, cou_args(arc, arv - 1)),
+			ft_lstclear(&stack_a), 0);
 	mm(&stack_a, &stack_b, cou_args(arc, arv - 1));
 	ft_lstclear(&stack_a);
 }

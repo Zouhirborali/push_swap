@@ -6,7 +6,7 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:40:12 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/20 16:35:45 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/23 16:03:26 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	swap_node(t_list **stack, char c)
 	elm2->next = elm1;
 	*stack = elm2;
 	if (c == 'a')
-		printf("sa\n");
+		write(1, "sa\n", 3);
 	else if (c == 'b')
-		printf("sb\n");
+		write(1, "sb\n", 3);
 }
 /*
 void swap_tow(t_list **list_a,t_list **list_b)

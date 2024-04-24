@@ -6,15 +6,13 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:54:32 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/21 15:22:28 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/23 16:03:39 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_BONUS_H
 # define CHECKER_BONUS_H
 # include <unistd.h>
-# include <stdio.h>
-# include <fcntl.h>
 # include <stdlib.h>
 
 typedef struct s_list

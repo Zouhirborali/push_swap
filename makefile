@@ -4,7 +4,7 @@ RM = rm -f
 NAME = push_swap
 NAME_B = checker
 
-SRC = test.c ft_lstiter.c get_arg.c  ft_lstnew.c ft_atoi.c \
+SRC = mainn.c ft_lstiter.c get_arg.c  ft_lstnew.c ft_atoi.c \
 	get_center.c push.c swap.c rotate.c algo.c  free_list.c \
 	check_errore.c  ft_split.c\
 
@@ -18,18 +18,23 @@ OBJ_B =$(SRC_B:.c=.o)
 
 all:$(NAME)
 
-$(NAME):$(OBJ) 
+$(NAME):$(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 bonus:$(NAME_B)
 
-$(NAME_B):$(OBJ_B) 
+$(NAME_B):$(OBJ_B)
 	$(CC) $(CFLAGS) -o $(NAME_B) $(OBJ_B)
 
-%.o:%.c push_swap.h ./bonus/checker.h
-	$(CC) $(CFLAGS) -c $< -o $@ 
+# %.o:%.c push_swap.h ./bonus/checker_bonus.h
+# 	$(CC) $(CFLAGS) -c $< -o $@ 
+# OBJ:SRC push_swap.h
+# 	$(CC) $(CFLAGS) -c $< -o $@ 
 # OBJ_B:SRC_B ./bonus/checker.h
 # 	$(CC) $(CFLAGS) -c $< -o $@ 
+$(OBJ_B) : ./bonus/checker_bonus.h
+
+$(OBJ) : push_swap.h
 
 clean:
 	$(RM) *.o 

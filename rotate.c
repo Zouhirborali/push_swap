@@ -6,7 +6,7 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:40:15 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/20 19:52:43 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/23 16:03:04 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@ void	rotate_down(t_list **list, char c)
 	tt->next = *list;
 	*list = tt;
 	if (c == 'a')
-		printf("rra\n");
+		write(1, "rra\n", 4);
 	else if (c == 'b')
-		printf("rrb\n");
+		write(1, "rrb\n", 4);
 }
 
 void	rotate_down_tow(t_list **list_a, t_list **list_b)
 {
 	rotate_down(list_a, ' ');
 	rotate_down(list_b, ' ');
-	printf("rrr\n");
+	write(1, "rrr\n", 4);
 }
 
 void	rotate_up(t_list **list, char c)
@@ -48,14 +48,14 @@ void	rotate_up(t_list **list, char c)
 	last->next = NULL;
 	ft_lstadd_back(list, last);
 	if (c == 'a')
-		printf("ra\n");
+		write(1, "ra\n", 3);
 	else if (c == 'b')
-		printf("rb\n");
+		write(1, "rb\n", 3);
 }
 
 void	rotate_up_tow(t_list **list_a, t_list **list_b)
 {
 	rotate_up(list_a, ' ');
 	rotate_up(list_b, ' ');
-	printf("rr\n");
+	write(1, "rr\n", 3);
 }

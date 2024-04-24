@@ -6,7 +6,7 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:55:11 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/21 15:14:52 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/23 12:40:54 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,17 @@ void	rotate_down(t_list **list)
 
 void	rotate_down_tow(t_list **list_a, t_list **list_b)
 {
-	if (git_count(*list_a) <= 1 || git_count(*list_b) <= 1)
+	if (git_count(*list_a) <= 1 && git_count(*list_b) <= 1)
 		return ;
-	rotate_down(list_a);
-	rotate_down(list_b);
+	if (git_count(*list_a) <= 1 && git_count(*list_b) > 1)
+		rotate_down(list_b);
+	else if (git_count(*list_a) > 1 && git_count(*list_b) <= 1)
+		rotate_down(list_a);
+	else
+	{
+		rotate_down(list_a);
+		rotate_down(list_b);
+	}
 }
 
 void	rotate_up(t_list **list)
@@ -52,8 +59,15 @@ void	rotate_up(t_list **list)
 
 void	rotate_up_tow(t_list **list_a, t_list **list_b)
 {
-	if (git_count(*list_a) <= 1 || git_count(*list_b) <= 1)
+	if (git_count(*list_a) <= 1 && git_count(*list_b) <= 1)
 		return ;
-	rotate_up(list_a);
-	rotate_up(list_b);
+	if (git_count(*list_a) <= 1 && git_count(*list_b) > 1)
+		rotate_up(list_b);
+	else if (git_count(*list_a) > 1 && git_count(*list_b) <= 1)
+		rotate_up(list_a);
+	else
+	{
+		rotate_up(list_a);
+		rotate_up(list_b);
+	}
 }

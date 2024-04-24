@@ -6,7 +6,7 @@
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:54:22 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/21 15:59:50 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/23 16:05:07 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,9 @@ int	main(int arv, char **arc)
 	stack_a = get_arg(arc, arv - 1);
 	if (sorrrt(&stack_a, &stack_b))
 		return (write(2, "Error\n", 6), 0);
-	if (check_sort_node(stack_a) && stack_b == NULL)
-		write(1, "KO\n", 3);
-	else
+	if (!check_sort_node(stack_a) && stack_b == NULL)
 		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
 	ft_lstclear(&stack_a);
 }

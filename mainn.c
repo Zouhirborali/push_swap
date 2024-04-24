@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   mainn.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakkas <zbakkas@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:40:09 by zbakkas           #+#    #+#             */
-/*   Updated: 2024/04/21 14:09:22 by zbakkas          ###   ########.fr       */
+/*   Updated: 2024/04/23 16:02:29 by zbakkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	main(int arv, char **arc)
 	if (check_sort(arc, arv - 1))
 		return (0);
 	if (cou_args(arc, arv - 1) == 2)
-		return (printf("sa\n"), 0);
+		return (write(1, "sa\n", 3), 0);
 	stack_a = get_arg(arc, arv - 1);
 	add_index(&stack_a);
 	if (cou_args(arc, arv - 1) == 3)
